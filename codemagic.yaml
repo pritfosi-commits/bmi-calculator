@@ -7,7 +7,8 @@ workflows:
       - name: Extract and Build AAB
         script: |
           unzip -o *.zip
-          PROJECT_DIR=$(dirname $(find . -maxdepth 3 -name "gradlew" | head -n 1))
+          PROJECT_DIR=$(dirname $(find . -maxdepth 4 -name "gradlew" | head -n 1))
+          echo "Found project at: $PROJECT_DIR"
           cd "$PROJECT_DIR"
           chmod +x gradlew
           ./gradlew bundleRelease
